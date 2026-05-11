@@ -1,5 +1,6 @@
 import time
 from load_bronze import load_bronze
+from load_silver import load_silver
 from validate import run_all_validations
 from logger import get_logger
 
@@ -14,6 +15,7 @@ def run_pipeline():
     
     try:
         load_bronze()
+        load_silver()
         run_all_validations()
         
         total_time = round(time.time() - pipeline_start, 2)
@@ -25,4 +27,3 @@ def run_pipeline():
 
 if __name__ == "__main__":
     run_pipeline()
-
